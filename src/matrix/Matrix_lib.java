@@ -89,4 +89,20 @@ public class Matrix_lib {
 		answer = this.getTranspose(answer);
 	    return answer;
 	}
+
+public double[] getSolution(double[][] a,double[] b){
+
+	double answer[] = new double[a.length];
+	double tmp[][] = new double[b.length][1];
+	double inv[][] = new double[a.length][a.length];
+	inv=getInverse(a);
+		for(int i=0;i<b.length;i++) {
+			tmp[i][0]=b[i];
+		}
+	tmp = getProduct(inv,tmp);
+		for(int i=0;i<b.length;i++) {
+			answer[i] = tmp[i][0];
+		}
+	return answer;
+	}
 }
